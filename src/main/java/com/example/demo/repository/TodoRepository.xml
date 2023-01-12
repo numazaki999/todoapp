@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.repository.TodoRepository">
+
+	<insert id="saveOne">
+    <![CDATA[
+        INSERT INTO todo
+        (
+           bodytext
+          ,deadline
+          ,finished
+        )        VALUES
+        (
+            #{bodytext}
+           ,#{deadline}
+           ,FALSE
+        )
+    ]]>
+	</insert>
+
+	<select id="selectOne" resultType="Todo">
+    <![CDATA[
+        SELECT
+            *
+        FROM
+            todo
+        WHERE
+            id = #{id}
+        ORDER BY
+        	deadline
+    ]]>
+	</select>
+	
+	<select id="selectAll" resultType="Todo">
+    <![CDATA[
+        SELECT
+            *
+        FROM
+            todo
+        ORDER BY
+        	deadline
+    ]]>
+	</select>
+
+	<update id="updateOne">
+    <![CDATA[
+        UPDATE
+        	todo
+        SET
+        	bodytext = #{bodytext}
+        WHERE
+            id = #{id}
+    ]]>
+	</update>
+	
+	<update id="finishOne">
+    <![CDATA[
+        UPDATE
+        	todo
+        SET
+        	finished = true
+        WHERE
+            id = #{id}
+    ]]>
+	</update>
+	
+
+	<delete id="deleteOne">
+    <![CDATA[
+        delete
+            todo
+        WHERE
+            id = #{id}
+    ]]>
+	</delete>
+</mapper>   
