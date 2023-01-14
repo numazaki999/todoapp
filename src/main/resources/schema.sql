@@ -4,3 +4,11 @@ CREATE TABLE IF NOT EXISTS todo (
 	deadline VARCHAR(255),
 	finished BOOLEAN DEFAULT FALSE
 );
+
+-- For PostgreSQL
+-- CREATE TABLE IF NOT EXISTS todo (
+-- 	id SERIAL PRIMARY KEY,
+-- 	bodytext VARCHAR(255),
+-- 	deadline VARCHAR(255),
+-- 	finished BOOLEAN DEFAULT FALSE
+-- );
